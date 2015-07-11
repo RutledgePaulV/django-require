@@ -28039,7 +28039,10 @@ define('build', function (require) {
             if (modules) {
                 modules.forEach(function (module) {
                     if (module.name) {
-                        module._sourcePath = buildContext.nameToUrl(module.name);
+	                    module._sourcePath = buildContext.nameToUrl(module.name);
+
+
+
                         //If the module does not exist, and this is not a "new" module layer,
                         //as indicated by a true "create" property on the module, and
                         //it is not a plugin-loaded resource, and there is no
@@ -28084,6 +28087,10 @@ define('build', function (require) {
                             //setting, which is a sign of incorrect config.
                             if (module._buildPath === module._sourcePath &&
                                 !config.allowSourceOverwrites) {
+
+
+	                            console.log(JSON.stringify(config));
+
                                 throw new Error('Module ID \'' + module.name  +
                                                 '\' has a source path that is same as output path: ' +
                                                 module._sourcePath +
